@@ -90,4 +90,5 @@
         <variable name="ANDROID_PATHPREFIX" value="/cordova/io.horses/callback" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
 </widget>
