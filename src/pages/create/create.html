@@ -19,7 +19,7 @@
   <form (ngSubmit)="create()">
     <ion-item>
       <ion-label color="dark" floating>Identificación</ion-label>
-      <ion-input type="text" [(ngModel)]="new.identificacion" name="identificacion"></ion-input>
+      <ion-input type="text" [(ngModel)]="new.identificacion" name="identificacion" max="5" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="dark" floating>Edad</ion-label>

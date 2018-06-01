@@ -28,24 +28,22 @@ export class MapPage {
   }
 
   showMap() {
-    //Location - Let Log
-    const location = new google.maps.LatLng(6.1960529, -75.5800563);
-    //let location:any;
-    //let that = this;
-
-    //Map Options
-    const options = {
-      center: location,
-      zoom: 12,
-      streetViewControl: false,
-      mapTypeId: 'roadmap'
-    };
-
-    //Se agrega el mapa
-    const map = new google.maps.Map(this.mapRef.nativeElement, options);
 
     this.geolocation.getCurrentPosition().then( (geoposition: Geoposition) => {
-      this.addMarker(new google.maps.LatLng(geoposition.coords.latitude, geoposition.coords.longitude), map);
+      const location = new google.maps.LatLng(geoposition.coords.latitude, geoposition.coords.longitude);
+
+      //Map Options
+      const options = {
+        center: location,
+        zoom: 12,
+        streetViewControl: false,
+        mapTypeId: 'roadmap'
+      };
+
+      //Se agrega el mapa
+      const map = new google.maps.Map(this.mapRef.nativeElement, options);
+
+            this.addMarker(new google.maps.LatLng(geoposition.coords.latitude, geoposition.coords.longitude), map);
     });
   }
 
