@@ -15,11 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreatePage {
 
+  new:any = {};
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePage');
+  }
+
+  create(){
+    this.new.id = Date.now();
+    console.log(this.new);
   }
 
 }

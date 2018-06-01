@@ -10,12 +10,40 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>read</ion-title>
+    <ion-title>Read</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <!-- <div class="row header">
+    <div class="col-4">ID</div>
+    <div class="col-4">Identificación</div>
+    <div class="col-2">Edad</div>
+    <div class="col-2">Estado</div>
+  </div>
+  <div class="row">
+    <div class="col-4">23214214</div>
+    <div class="col-4">2132</div>
+    <div class="col-2">20</div>
+    <div class="col-2">Activo</div>
+  </div> -->
+
+  <ion-grid>
+    <ion-row class="header" align-items-center>
+      <ion-col col-3 class="col" >ID</ion-col>
+      <ion-col col-4 class="col" >Identificación</ion-col>
+      <ion-col col-2 class="col" >Edad</ion-col>
+      <ion-col col-3 class="col" >Estado</ion-col>
+    </ion-row>
+
+    <ion-row align-items-center>
+      <ion-col col-3 class="col" >23214214</ion-col>
+      <ion-col col-4 class="col" >2132</ion-col>
+      <ion-col col-2 class="col" >20</ion-col>
+      <ion-col col-3 class="col" >Activo</ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

@@ -10,12 +10,38 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>create</ion-title>
+    <ion-title>Create</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
+  <form (ngSubmit)="create()">
+    <ion-item>
+      <ion-label color="dark" floating>Identificación</ion-label>
+      <ion-input type="text" [(ngModel)]="new.identificacion" name="identificacion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" floating>Edad</ion-label>
+      <ion-input type="number" [(ngModel)]="new.edad" name="edad"></ion-input>
+    </ion-item>
+    <ion-list radio-group [(ngModel)]="new.estado" name="estado">
 
+      <ion-list-header>
+        Estado
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Activo</ion-label>
+        <ion-radio value="activo"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Inactivo</ion-label>
+        <ion-radio value="inactivo"></ion-radio>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button type="submit" color="dark" block>Add</button>
+  </form>
 </ion-content>

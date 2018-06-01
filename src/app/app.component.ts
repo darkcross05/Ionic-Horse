@@ -12,6 +12,8 @@ import { MapPage } from '../pages/map/map';
 import { ReadPage } from '../pages/read/read';
 import { UpdatePage } from '../pages/update/update';
 
+import { AuthService } from '../service/auth.service';
+
 import Auth0Cordova from '@auth0/cordova';
 
 @Component({
@@ -22,20 +24,20 @@ export class MyApp {
 
   rootPage: any = IntroPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public auth0: AuthService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Create', component: CreatePage },
-      { title: 'Delete', component: DeletePage },
-      { title: 'Map', component: MapPage },
-      { title: 'Read', component: ReadPage },
-      { title: 'Update', component: UpdatePage },
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'List', component: ListPage, icon: 'people' },
+      { title: 'Create', component: CreatePage, icon: 'person-add' },
+      { title: 'Delete', component: DeletePage, icon: 'trash' },
+      { title: 'Map', component: MapPage, icon: 'locate' },
+      { title: 'Read', component: ReadPage, icon: 'book' },
+      { title: 'Update', component: UpdatePage, icon: 'create' },
     ];
 
   }
@@ -59,5 +61,10 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout(){
+    this.auth0.logout();
+    this.nav.setRoot(IntroPage);
   }
 }

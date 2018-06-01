@@ -15,11 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UpdatePage {
 
+  flag:boolean = false;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UpdatePage');
+  onInput(myInput:any){
+    console.log(myInput);
   }
 
 }
