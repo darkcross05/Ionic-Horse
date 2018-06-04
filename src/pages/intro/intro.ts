@@ -22,8 +22,6 @@ ViewChild
 })
 export class IntroPage {
 
-  //@ViewChild(Slides) slides: Slides;
-
   slides = [
     {
       title: "Welcome to the Docs!",

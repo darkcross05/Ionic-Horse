@@ -21,16 +21,16 @@
   <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput(myInput)">
   </ion-searchbar>
 
-  <form (ngSubmit)="create()" *ngIf="flag">
+  <form (ngSubmit)="edit()" *ngIf="flag">
     <ion-item>
-      <ion-label color="dark" floating>Identificación</ion-label>
-      <ion-input type="text" [(ngModel)]="new.identificacion" name="identificacion"></ion-input>
+      <ion-label color="dark" floating>{{ caballo[0].identificacion }}</ion-label>
+      <ion-input type="text" [(ngModel)]="change.identificacion" name="identificacion"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="dark" floating>Edad</ion-label>
-      <ion-input type="number" [(ngModel)]="new.edad" name="edad"></ion-input>
+      <ion-label color="dark" floating>{{ caballo[0].edad }}</ion-label>
+      <ion-input type="number" [(ngModel)]="change.edad" name="edad"></ion-input>
     </ion-item>
-    <ion-list radio-group [(ngModel)]="new.estado" name="estado">
+    <ion-list radio-group [(ngModel)]="change.estado" name="estado">
 
       <ion-list-header>
         Estado
@@ -47,7 +47,7 @@
       </ion-item>
 
     </ion-list>
-    <button ion-button type="submit" color="dark" block>Add</button>
+    <button ion-button type="submit" color="dark" block>Edit</button>
   </form>
 
 </ion-content>

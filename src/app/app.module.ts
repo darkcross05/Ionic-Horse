@@ -16,8 +16,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthService } from '../service/auth.service';
+import { PhpService } from '../service/php.service';
 
 import { Geolocation } from '@ionic-native/geolocation';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -52,7 +56,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    PhpService
   ]
 })
 export class AppModule {}

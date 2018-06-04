@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+//Servicios de consumo URL de php
+import { PhpService } from "../../service/php.service";
+
 /**
  * Generated class for the CreatePage page.
  *
@@ -17,16 +20,11 @@ export class CreatePage {
 
   new:any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatePage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public servicio: PhpService) {
   }
 
   create(){
-    this.new.id = Date.now();
-    console.log(this.new);
+    this.servicio.agregar(this.new);
   }
 
 }

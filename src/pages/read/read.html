@@ -25,10 +25,10 @@
       <ion-col col-5 class="col" >Estado</ion-col>
     </ion-row>
 
-    <ion-row align-items-center>
-      <ion-col col-5 class="col" >2132</ion-col>
-      <ion-col col-2 class="col" >20</ion-col>
-      <ion-col col-5 class="col" >Activo</ion-col>
+    <ion-row align-items-center *ngFor="let caballo of caballos">
+      <ion-col col-5 class="col" >{{ caballo.identificacion }}</ion-col>
+      <ion-col col-2 class="col" >{{ caballo.edad }}</ion-col>
+      <ion-col col-5 class="col" >{{ caballo.estado }}</ion-col>
     </ion-row>
   </ion-grid>
 

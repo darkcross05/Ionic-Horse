@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+//Servicios de consumo URL de php
+import { PhpService } from "../../service/php.service";
 
 /**
  * Generated class for the ReadPage page.
@@ -15,11 +17,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ReadPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  caballos: any[] = [];
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ReadPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public servicio: PhpService) {
+    this.servicio.listar()
+      .subscribe(resp => {
+        this.caballos = resp;
+
+        if (this.caballos.length > 0) {
+          for (let i = 0; i < this.caballos.length; i++) {
+            if (this.caballos[i].estado == 1) {
+              this.caballos[i].estado = "Activo";
+            } else if (this.caballos[i].estado == 0) {
+              this.caballos[i].estado = "Inactivo";
+            }
+          }
+        }
+      });
   }
 
 }
